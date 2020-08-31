@@ -11,7 +11,7 @@ import java.awt.*;
 public class Diseno {
 	private JPanel ventana;
 	private JButton btn;
-	private JTextField tf;
+	private JTextArea tf;
 	private JTextArea ta,ta2;
 	private JFrame fondo;
 	private JPanel p1;
@@ -33,10 +33,10 @@ public class Diseno {
 	public void setBtn(JButton btn) {
 		this.btn = btn;
 	}
-	public JTextField getTf() {
+	public JTextArea getTf() {
 		return tf;
 	}
-	public void setTf(JTextField tf) {
+	public void setTf(JTextArea tf) {
 		this.tf = tf;
 	}
 	public JTextArea getTa() {
@@ -124,25 +124,26 @@ public class Diseno {
 	}
 	public void primero(){
 		btn = new JButton("Enviar");
-		tf = new JTextField();
+		tf = new JTextArea();
+		tf.setColumns(2);
+		tf.setRows(30);
 		tf.setBorder(border);
 		sf = new JScrollPane(tf);
-		ta = new JTextArea(18,30);
+		ta = new JTextArea(18,40);
 		ta.setBorder(border);
 		ta.setEditable(false);
 		s1 = new JScrollPane(ta);
 		p1 = new JPanel();
-		p1.setLayout(new BorderLayout());
-		p1.add(ele(),BorderLayout.NORTH);
-		p1.add(ele(),BorderLayout.WEST);
-		p1.add(s1,BorderLayout.CENTER);
+		p1.setLayout(new GridLayout(1,3));
+		p1.add(s1);
 		p2 = new JPanel();
-		p2.setLayout(new GridLayout(1,3));
+		p2.setLayout(new GridLayout(2,2));
 		p2.add(sf);
 		p2.add(btn);
 		ventana = new JPanel();
 		ventana.setLayout(new BorderLayout());
 		ventana.add(p1,BorderLayout.NORTH);
+		p2.setPreferredSize(new Dimension(100,70));
 		ventana.add(p2, BorderLayout.CENTER);
 		ventana.add(ele(),BorderLayout.SOUTH);
 		
@@ -151,8 +152,7 @@ public class Diseno {
 	public void segundo(){
 		west = new JPanel();
 		west.setLayout(new BorderLayout());
-		west.add(ele(), BorderLayout.NORTH);
-		ta2 = new JTextArea(5,30);
+		ta2 = new JTextArea(5,20);
 		ta2.setBorder(border);
 		ta2.setEditable(false);
 		s2 = new JScrollPane(ta2);

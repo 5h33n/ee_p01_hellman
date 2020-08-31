@@ -20,6 +20,7 @@ public class Cliente{
 	Diseno d = new Diseno();
 	String nick;
 	String ip;
+	static boolean shift;
 	public String getNick() {
 		return nick;
 	}
@@ -50,7 +51,7 @@ public class Cliente{
 						escritor.println("°M3b0i°"+nick);
 						System.exit(0);
 					} catch (Throwable e1) {
-						e1.printStackTrace();
+						System.exit(0);
 					}
 				}
 			}
@@ -82,7 +83,7 @@ public class Cliente{
 							}
 						}
 					});
-					ex.printStackTrace();
+					//ex.printStackTrace();
 				}
 			}
 		});
